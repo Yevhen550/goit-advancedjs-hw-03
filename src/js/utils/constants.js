@@ -1,4 +1,5 @@
 export const refs = {
-  form: document.querySelector('.form'),
-  gallery: document.querySelector('.js-gallery'),
+  formEl: document.querySelector('.form'),
+  galleryEl: document.querySelector('.js-gallery'),
+  loaderEl: document.querySelector(".js-loader")
 };

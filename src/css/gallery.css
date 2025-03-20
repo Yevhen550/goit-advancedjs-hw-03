@@ -1,0 +1,52 @@
+.gallery-container {
+  margin-top: 2em;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  list-style: none;
+  padding: 0 0 36px;
+}
+
+.gallery-card {
+  border: 1px solid #808080;
+}
+
+.gallery-link {
+  position: relative;
+  display: block;
+  height: 100%;
+  border: 1px solid #808080;
+}
+
+.gallery-card-info {
+  display: flex;
+  justify-content: space-around;
+  position: absolute;
+  bottom: 0;
+  background-color: #fff;
+  width: 100%;
+}
+
+.gallery-card-info li {
+  text-align: center;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+.gallery-card-name {
+  color: #2e2f42;
+  font-family: Montserrat;
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 1.333;
+  letter-spacing: 0.48px;
+}
+
+.gallery-card-value {
+  color: #2e2f42;
+  font-family: Montserrat;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 2;
+  letter-spacing: 0.48px;
+}

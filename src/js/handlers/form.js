@@ -1,5 +1,7 @@
 import iziToast from 'izitoast';
 import { fetchFotoCard } from '../pixabay-api';
+import { refs } from '../utils/constants';
+import { createMarkupGalleryCards } from '../render-functions';
 
 export function handlerSearch(ev) {
   ev.preventDefault();
@@ -17,5 +19,14 @@ export function handlerSearch(ev) {
     return;
   }
 
-  fetchFotoCard(userQuery);
+  return fetchFotoCard(userQuery)
+    .then(data => {
+      refs.galleryEl.innerHTML = createMarkupGalleryCards(data.hits);
+    })
+    .catch(err => {
+      console.log(err);
+    })
+    .finally(() => {
+      form.reset();
+    });
 }

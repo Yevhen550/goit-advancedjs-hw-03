@@ -9,7 +9,7 @@ export function fetchFotoCard(query) {
     safesearch: true,
   });
 
-  fetch(`${BASE_URL}${API_KEY}&${searchParams}`).then(res => {
+  return fetch(`${BASE_URL}${API_KEY}&${searchParams}`).then(res => {
     if (!res.ok) {
       throw new Error(res.status);
     }

@@ -1,7 +1,14 @@
+import SimpleLightbox from 'simplelightbox';
 import iziToast from 'izitoast';
 import { fetchFotoCard } from '../pixabay-api';
 import { refs } from '../utils/constants';
 import { createMarkupGalleryCards } from '../render-functions';
+
+const lightbox = new SimpleLightbox('.gallery-container a', {
+  captionsData: 'alt',
+  captionPosition: 'bottom',
+  captionDelay: 250,
+});
 
 export function handlerSearch(ev) {
   ev.preventDefault();
@@ -18,9 +25,22 @@ export function handlerSearch(ev) {
 
     return;
   }
+  refs.loaderEl.classList.add('active');
 
   return fetchFotoCard(userQuery)
     .then(data => {
+      refs.loaderEl.classList.remove('active');
+      if (!data.total) {
+        refs.galleryEl.innerHTML = '';
+
+        iziToast.error({
+          message:
+            'Sorry, there are no images matching your search query. Please try again!',
+          position: 'topRight',
+        });
+        return [];
+      }
+
       refs.galleryEl.innerHTML = createMarkupGalleryCards(data.hits);
     })
     .catch(err => {

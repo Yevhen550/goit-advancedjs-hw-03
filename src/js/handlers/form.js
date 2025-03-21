@@ -42,6 +42,7 @@ export function handlerSearch(ev) {
       }
 
       refs.galleryEl.innerHTML = createMarkupGalleryCards(data.hits);
+      lightbox.refresh();
     })
     .catch(err => {
       console.log(err);

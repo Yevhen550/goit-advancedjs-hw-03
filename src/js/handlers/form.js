@@ -4,7 +4,7 @@ import { fetchFotoCard } from '../pixabay-api';
 import { refs } from '../utils/constants';
 import { createMarkupGalleryCards } from '../render-functions';
 
-const lightbox = new SimpleLightbox('.gallery-container a', {
+const lightbox = new SimpleLightbox('.gallery a', {
   captionsData: 'alt',
   captionPosition: 'bottom',
   captionDelay: 250,
